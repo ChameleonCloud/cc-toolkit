@@ -1,0 +1,11 @@
+openstacksdk
+python-ironicclient
+python-glanceclient
+python-swiftclient
+python-manilaclient
+git+https://github.com/chameleonCloud/python-doniclient
+git+https://github.com/chameleonCloud/python-blazarclient
+
+
+# add due to missing deps, fixes terminal output
+munch
