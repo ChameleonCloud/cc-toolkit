@@ -1,4 +1,4 @@
-# Summary
+# Intro
 
 This repo provides a quick method to install the openstack client tools and SDK, with versions compatible with what Chameleon is running.
 
@@ -30,10 +30,26 @@ source .venv/bin/activate
 OS_CLOUD=chi_uc openstack token issue
 ```
 
-# Handling client version conflicts
+## Handling client version conflicts
 
 While openstack services recommend using an "upper-constraints.txt" file to limit what depenency versions are in use, this presents issues for
 installation of develeopment-mode packages from git, as they don't obey the constraints file.
 
 Instead of limiting the package versions, in the case where we need an older client to talk to an openstack service, we can limit the api microversion in use.
 See https://docs.openstack.org/openstacksdk/latest/user/microversions.html
+
+
+## References
+
+OpenStack Docs
+
+- https://governance.openstack.org/tc/reference/runtimes/xena.html
+- https://docs.openstack.org/openstacksdk/latest/user/guides/intro.html
+
+
+
+Other attempts at operator tools
+
+- https://github.com/ChameleonCloud/climeleon
+- https://github.com/ChameleonCloud/ciab-operator-tools
+- https://github.com/ChameleonCloud/python-chi-operator
