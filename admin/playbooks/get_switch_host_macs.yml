@@ -1,0 +1,125 @@
+# demonstrate method to get mac-address table via XML from switch CLI.
+# This is the wrong way to do things, we should get this table from SNMP, restconf, or other mechanism so that there's an API.
+# <sad escape character noises>
+---
+- name: Get Mac Addresses from Switches
+  hosts: os10_switches
+  gather_facts: false
+  connection: network_cli
+  collections:
+    - dellemc.os10
+  tasks:
+    - name: get_mac_table
+      os10_command:
+        commands: show mac address-table | display-xml
+      register: mac_table_xml_result
+    - name: un_escape_xml
+      set_fact:
+        plain_xml: "{{ mac_table_xml_result.stdout[0] | regex_replace('[\\r\\n\\t]+','') | regex_replace('[\\\"]+','\"') }}"
+    # - debug:
+    #     var: plain_xml | ansible.utils.from_xml
+    - set_fact:
+        parsed_xml: "{{ plain_xml | ansible.utils.from_xml }}"
+    - set_fact:
+        mac_table_list: "{{parsed_xml['rpc-reply']['bulk']['data']['fwd-table']}}"
+        mac_iface_mapping: {}
+        mac_switch_name_mapping: {}
+    - set_fact:
+        mac_iface_mapping: "{{ mac_iface_mapping | combine( { mac_address: interface } ) }}"
+        mac_switch_name_mapping: "{{ mac_switch_name_mapping | combine( { mac_address: inventory_hostname } ) }}"
+      vars:
+        mac_address: "{{item['mac-addr']}}"
+        interface: "{{item['if-name']}}"
+      loop: "{{mac_table_list}}"
+      when: item['if-name'] != "ethernet1/1/52"
+    - name: print_iface_maps
+      debug:
+        var: mac_iface_mapping
+    - name: print_swname_maps
+      debug:
+        var: mac_switch_name_mapping
+
+- name: Dell OpenManage Ansible iDRAC
+  hosts: idrac
+  gather_facts: false
+
+  tasks:
+#  - name: iDRAC gather facts for System, BIOS, Controller, CPU, Enclosure.
+#    delegate_to: localhost
+#    import_role:
+#      name: dellemc.openmanage.idrac_gather_facts
+#    vars:
+#      hostname: "{{ idrac_ip }}"
+#      username: "{{ idrac_user }}"
+#      password: "{{ idrac_password }}"
+#      validate_certs: False
+#      target:
+#        - NIC
+  - name: iDRAC gather facts
+    delegate_to: localhost
+    dellemc.openmanage.idrac_system_info:
+      idrac_ip: "{{ idrac_ip }}"
+      idrac_user: "{{ idrac_user }}"
+      idrac_password: "{{ idrac_password }}"
+      validate_certs: False
+    register: idrac_facts_result
+
+  - debug:
+      msg: "{{idrac_facts_result['system_info']['NIC']}}"
+
+  - name: set_facts_switch_macs
+    set_fact:
+      mac_iface_mapping: "{{ bd41_ifaces | combine(bf41_ifaces)}}"
+      mac_switch_name_mapping: "{{ bd41_names | combine(bf41_names)}}"
+    vars:
+      bd41_ifaces: "{{ hostvars['sw-tor-bd41']['mac_iface_mapping'] }}"
+      bf41_ifaces: "{{ hostvars['sw-tor-bf41']['mac_iface_mapping'] }}"
+      bd41_names: "{{ hostvars['sw-tor-bd41']['mac_switch_name_mapping'] }}"
+      bf41_names: "{{ hostvars['sw-tor-bf41']['mac_switch_name_mapping'] }}"
+
+  - name: node_interfaces_fact
+    set_fact:
+      interfaces: []
+
+  - name: set_node_ifaces_fact
+    set_fact:
+      interfaces: "{{ interfaces + [ local_link_connection ] }}"
+    vars:
+      mac_address_outer: "{{item.MACAddress | lower }}"
+      linkstatus: "{{item.LinkStatus}}"
+      switch_info_outer: "{{ mac_switch_name_mapping[mac_address_outer] | default(None) }}"
+      local_link_connection:
+        mac_address: "{{ mac_address_outer }}"
+        name: "{{item.Id}}"
+        switch_info: "{{ switch_info_outer }}"
+        switch_id: "{{hostvars[switch_info_outer]['switch_id'] | default(None) }}"
+        switch_port_id: "{{ mac_iface_mapping[mac_address_outer] | default(None) }}"
+    #loop: "{{nic}}"
+    loop: "{{idrac_facts_result['system_info']['NIC']}}"
+    when: linkstatus=="LinkUp"
+    when: LinkStatus=="Up"
+
+  - name: template_doni_json
+    delegate_to: localhost
+    ansible.builtin.template:
+      src: doni_node.j2
+      dest: "/tmp/output/{{inventory_hostname}}-doni.json"
+    vars:
+      interfaces: "{{interfaces}}"
+
+
+
+  # - name: Print the System details
+  #   delegate_to: localhost
+  #   ansible.builtin.template:
+  #     src: node_ports.j2
+  #     dest: "/tmp/output/{{inventory_hostname}}-{{portname}}.json"
+  #   vars:
+  #     mac_address: "{{item.MACAddress | lower }}"
+  #     portname: "{{item.Id}}"
+  #     switch_info: "{{ mac_switch_name_mapping[mac_address] }}"
+  #     switch_id: "{{hostvars[switch_info]['switch_id']}}"
+  #     switch_port_id: "{{ mac_iface_mapping[mac_address] }}"
+  #     linkstatus: "{{item.LinkStatus}}"
+  #   loop: "{{nic}}"
+  #   when: linkstatus=="LinkUp"

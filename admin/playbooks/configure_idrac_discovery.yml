@@ -1,0 +1,21 @@
+# example for enabling idrac topology lldp and other settings
+
+---
+- name: Dell OpenManage Ansible iDRAC
+  hosts: idrac
+  gather_facts: false
+
+  tasks:
+    - name: Configure LLDP Toplogy Discovery
+      dellemc.openmanage.idrac_attributes:
+        idrac_ip: "{{ idrac_ip }}"
+        idrac_user: "{{ idrac_user }}"
+        idrac_password: "{{ idrac_password }}"
+        validate_certs: False
+        idrac_attributes:
+           NIC.1.DNSRacName: "iDRAC-{{inventory_hostname}}"
+           NIC.1.TopologyLldp: Enabled
+          #  Serial.1.Enable: Disabled
+           IPMISOL.1.BaudRate: 115200
+           IPMISOL.1.Enable: Enabled
+      delegate_to: localhost
