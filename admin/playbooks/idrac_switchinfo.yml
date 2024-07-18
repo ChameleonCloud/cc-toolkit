@@ -1,0 +1,41 @@
+---
+- name: Dell OpenManage Ansible iDRAC
+  hosts: idrac
+  gather_facts: false
+  tasks:
+  - name: iDRAC gather facts
+    delegate_to: localhost
+    dellemc.openmanage.idrac_system_info:
+      idrac_ip: "{{ idrac_ip }}"
+      idrac_user: "{{ idrac_user }}"
+      idrac_password: "{{ idrac_password }}"
+      validate_certs: False
+    register: idrac_facts_result
+
+  - name: node_interfaces_fact
+    set_fact:
+      interfaces: []
+      nics: "{{idrac_facts_result['system_info']['NIC']}}"
+
+
+  - name: set_node_ifaces_fact
+    set_fact:
+      interfaces: "{{ interfaces + [ local_link_connection ] }}"
+    vars:
+      switch_id_outer: "{{ item.SwitchConnectionID }}"
+      local_link_connection:
+        mac_address: "{{ item.PermanentMACAddress }}"
+        name: "{{ item.FQDD }}"
+        switch_id: "{{ switch_id_outer }}"
+        switch_info: "{{ switch_name_map[switch_id_outer] }}"
+        switch_port_id: "{{ item.SwitchPortConnectionID }}"
+    loop: "{{nics}}"
+    when:
+      - item.Protocol == 'NIC'
+      - item.LinkStatus == "Up"
+
+  - name: template_doni_json
+    delegate_to: localhost
+    ansible.builtin.copy:
+      content: "{{interfaces | to_nice_json }}"
+      dest: "/tmp/output/{{inventory_hostname}}.json"

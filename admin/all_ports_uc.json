@@ -1,0 +1,975 @@
+# Created with otput from idrac_switchview playbook
+# to generate, execute `jq -n 'reduce inputs as $s (.; .[input_filename] += $s)' *.json > all_ports2.json`
+# (or preferrably something better...)
+
+{
+  "nc01.json": [
+    {
+      "mac_address": "24:6E:96:79:3B:78",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/1:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:3B:7A",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/33:1"
+    }
+  ],
+  "nc02.json": [
+    {
+      "mac_address": "24:6E:96:79:1A:44",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/2:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:1A:46",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/34:1"
+    }
+  ],
+  "nc03.json": [
+    {
+      "mac_address": "24:6E:96:79:1B:98",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/3:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:1B:9A",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/35:1"
+    }
+  ],
+  "nc04.json": [
+    {
+      "mac_address": "24:6E:96:79:3A:68",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/4:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:3A:6A",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/56:4"
+    }
+  ],
+  "nc05.json": [
+    {
+      "mac_address": "24:6E:96:7E:03:10",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/56:3"
+    },
+    {
+      "mac_address": "24:6E:96:7E:03:0E",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/5:1"
+    }
+  ],
+  "nc06.json": [
+    {
+      "mac_address": "24:6E:96:7E:0F:AC",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/6:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:0F:AE",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/56:2"
+    }
+  ],
+  "nc07.json": [
+    {
+      "mac_address": "24:6E:96:7D:F5:E8",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/7:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:F5:EA",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/56:1"
+    }
+  ],
+  "nc08.json": [
+    {
+      "mac_address": "24:6E:96:7E:10:BE",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/55:4"
+    },
+    {
+      "mac_address": "24:6E:96:7E:10:BC",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/8:1"
+    }
+  ],
+  "nc09.json": [
+    {
+      "mac_address": "24:6E:96:79:1D:96",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/9:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:1D:98",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/55:3"
+    }
+  ],
+  "nc10.json": [
+    {
+      "mac_address": "24:6E:96:7D:FC:D0",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/10:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FC:D2",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/55:2"
+    }
+  ],
+  "nc11.json": [
+    {
+      "mac_address": "24:6E:96:7E:11:22",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/11:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:11:24",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/55:1"
+    }
+  ],
+  "nc12.json": [
+    {
+      "mac_address": "24:6E:96:7D:FA:06",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/12:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FA:08",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/54:4"
+    }
+  ],
+  "nc13.json": [
+    {
+      "mac_address": "24:6E:96:79:1C:00",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/54:3"
+    },
+    {
+      "mac_address": "24:6E:96:79:1B:FE",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/13:1"
+    }
+  ],
+  "nc14.json": [
+    {
+      "mac_address": "24:6E:96:7E:0F:F2",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/54:2"
+    },
+    {
+      "mac_address": "24:6E:96:7E:0F:F0",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/14:1"
+    }
+  ],
+  "nc15.json": [
+    {
+      "mac_address": "24:6E:96:79:1F:0C",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/15:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:1F:0E",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/54:1"
+    }
+  ],
+  "nc16.json": [
+    {
+      "mac_address": "24:6E:96:7D:AB:18",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/16:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:AB:1A",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/53:4"
+    }
+  ],
+  "nc17.json": [
+    {
+      "mac_address": "24:6E:96:7D:FA:4A",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/17:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FA:4C",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/53:3"
+    }
+  ],
+  "nc18.json": [
+    {
+      "mac_address": "24:6E:96:7D:F9:7E",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/18:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:F9:80",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/53:2"
+    }
+  ],
+  "nc19.json": [
+    {
+      "mac_address": "24:6E:96:7D:FA:28",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/19:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FA:2A",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/53:1"
+    }
+  ],
+  "nc20.json": [
+    {
+      "mac_address": "24:6E:96:7E:2B:2A",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/25:1"
+    }
+  ],
+  "nc21.json": [
+    {
+      "mac_address": "24:6E:96:7E:12:BC",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/37:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:12:BA",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/21:1"
+    }
+  ],
+  "nc24.json": [
+    {
+      "mac_address": "24:6E:96:7E:24:42",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/24:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:24:44",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/40:1"
+    }
+  ],
+  "nc25.json": [
+    {
+      "mac_address": "24:6E:96:7E:0F:68",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/25:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:0F:6A",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/41:1"
+    }
+  ],
+  "nc26.json": [
+    {
+      "mac_address": "24:6E:96:7E:30:9C",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/26:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:30:9E",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/42:1"
+    }
+  ],
+  "nc27.json": [
+    {
+      "mac_address": "24:6E:96:7D:AA:F6",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/27:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:AA:F8",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/43:1"
+    }
+  ],
+  "nc28.json": [
+    {
+      "mac_address": "24:6E:96:7D:A5:20",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/44:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:A5:1E",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/28:1"
+    }
+  ],
+  "nc29.json": [
+    {
+      "mac_address": "24:6E:96:7D:96:82",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/29:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:96:84",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/45:1"
+    }
+  ],
+  "nc30.json": [
+    {
+      "mac_address": "24:6E:96:7D:AE:26",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/30:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:AE:28",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/46:1"
+    }
+  ],
+  "nc31.json": [
+    {
+      "mac_address": "24:6E:96:7E:0B:28",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/31:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:0B:2A",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/47:1"
+    }
+  ],
+  "nc32.json": [
+    {
+      "mac_address": "24:6E:96:7D:7E:34",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/32:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:7E:36",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:44:41",
+      "switch_info": "sw-tor-bf41",
+      "switch_port_id": "ethernet1/1/48:1"
+    }
+  ],
+  "nc33.json": [
+    {
+      "mac_address": "24:6E:96:7E:1F:C0",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/46:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:1F:BE",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/30:1"
+    }
+  ],
+  "nc34.json": [
+    {
+      "mac_address": "24:6E:96:7D:77:F6",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/31:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:77:F8",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/47:1"
+    }
+  ],
+  "nc35.json": [
+    {
+      "mac_address": "24:6E:96:7E:24:86",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/32:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:24:88",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/48:1"
+    }
+  ],
+  "nc36.json": [
+    {
+      "mac_address": "24:6E:96:7D:FD:7C",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/33:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FD:7A",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/1:1"
+    }
+  ],
+  "nc37.json": [
+    {
+      "mac_address": "24:6E:96:7D:FF:DE",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/2:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FF:E0",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/34:1"
+    }
+  ],
+  "nc38.json": [
+    {
+      "mac_address": "24:6E:96:7D:9F:48",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/35:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:9F:46",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/3:1"
+    }
+  ],
+  "nc39.json": [
+    {
+      "mac_address": "24:6E:96:7D:FD:BE",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/4:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FD:C0",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/56:4"
+    }
+  ],
+  "nc40.json": [
+    {
+      "mac_address": "24:6E:96:7D:AF:E0",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/5:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:AF:E2",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/56:3"
+    }
+  ],
+  "nc41.json": [
+    {
+      "mac_address": "24:6E:96:7D:84:2E",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/6:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:84:30",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/56:2"
+    }
+  ],
+  "nc42.json": [
+    {
+      "mac_address": "24:6E:96:7D:FF:BC",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/7:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FF:BE",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/56:1"
+    }
+  ],
+  "nc43.json": [
+    {
+      "mac_address": "24:6E:96:7D:FD:E0",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/8:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FD:E2",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/55:4"
+    }
+  ],
+  "nc44.json": [
+    {
+      "mac_address": "24:6E:96:7E:00:CE",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/55:3"
+    },
+    {
+      "mac_address": "24:6E:96:7E:00:CC",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/9:1"
+    }
+  ],
+  "nc45.json": [
+    {
+      "mac_address": "24:6E:96:7D:FF:12",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/10:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FF:14",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/55:2"
+    }
+  ],
+  "nc46.json": [
+    {
+      "mac_address": "24:6E:96:7D:AD:C0",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/11:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:AD:C2",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/55:1"
+    }
+  ],
+  "nc47.json": [
+    {
+      "mac_address": "24:6E:96:7D:7B:48",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/12:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:7B:4A",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/54:4"
+    }
+  ],
+  "nc48.json": [
+    {
+      "mac_address": "24:6E:96:7D:AC:B0",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/13:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:AC:B2",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/54:3"
+    }
+  ],
+  "nc49.json": [
+    {
+      "mac_address": "24:6E:96:7D:FA:6C",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/14:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FA:6E",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/54:2"
+    }
+  ],
+  "nc50.json": [
+    {
+      "mac_address": "24:6E:96:7D:7C:7A",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/15:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:7C:7C",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/54:1"
+    }
+  ],
+  "nc51.json": [
+    {
+      "mac_address": "24:6E:96:7D:A5:62",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/16:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:A5:64",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/53:4"
+    }
+  ],
+  "nc52.json": [
+    {
+      "mac_address": "24:6E:96:7D:7D:02",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/17:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:7D:04",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/53:3"
+    }
+  ],
+  "nc53.json": [
+    {
+      "mac_address": "24:6E:96:7E:29:4E",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/18:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:29:50",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/53:2"
+    }
+  ],
+  "nc54.json": [
+    {
+      "mac_address": "24:6E:96:7D:A5:A8",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/53:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:A5:A6",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/19:1"
+    }
+  ],
+  "nc55.json": [
+    {
+      "mac_address": "24:6E:96:7E:25:98",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/36:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:25:96",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/20:1"
+    }
+  ],
+  "nc57.json": [
+    {
+      "mac_address": "24:6E:96:7E:28:EA",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/38:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:28:E8",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/22:1"
+    }
+  ],
+  "nc58.json": [
+    {
+      "mac_address": "24:6E:96:79:1A:22",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/23:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:1A:24",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/39:1"
+    }
+  ],
+  "nc59.json": [
+    {
+      "mac_address": "24:6E:96:79:1B:DC",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/24:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:1B:DE",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/40:1"
+    }
+  ],
+  "nc60.json": [
+    {
+      "mac_address": "24:6E:96:7D:87:3C",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/25:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:87:3E",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/41:1"
+    }
+  ],
+  "nc61.json": [
+    {
+      "mac_address": "24:6E:96:7E:2E:E2",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/26:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:2E:E4",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/42:1"
+    }
+  ],
+  "nc62.json": [
+    {
+      "mac_address": "24:6E:96:79:1B:56",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/43:1"
+    },
+    {
+      "mac_address": "24:6E:96:79:1B:54",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/27:1"
+    }
+  ],
+  "nc63.json": [
+    {
+      "mac_address": "24:6E:96:7E:30:14",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/28:1"
+    },
+    {
+      "mac_address": "24:6E:96:7E:30:16",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/44:1"
+    }
+  ],
+  "nc64.json": [
+    {
+      "mac_address": "24:6E:96:7D:FC:6C",
+      "name": "NIC.Integrated.1-2-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/45:1"
+    },
+    {
+      "mac_address": "24:6E:96:7D:FC:6A",
+      "name": "NIC.Integrated.1-1-1",
+      "switch_id": "8c:47:be:c5:28:41",
+      "switch_info": "sw-tor-bd41",
+      "switch_port_id": "ethernet1/1/29:1"
+    }
+  ]
+}
