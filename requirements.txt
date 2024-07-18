@@ -1,3 +1,4 @@
+openstackclient
 openstacksdk
 python-ironicclient
 python-glanceclient
@@ -6,6 +7,8 @@ python-manilaclient
 git+https://github.com/chameleonCloud/python-doniclient
 git+https://github.com/chameleonCloud/python-blazarclient
 
+osc-placement
 
 # add due to missing deps, fixes terminal output
 munch
+setuptools
